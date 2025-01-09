@@ -11,7 +11,7 @@ const Template = () => {
     const loc = useLocation();
     const userData = loc.state;
 
-    const contentRef = React.useRef(null);
+    const contentRef = React.useRef(null); // ref for PDF
     const generatePDF = async () => {
         if (contentRef.current) {
           const canvas = await html2canvas(contentRef.current);
