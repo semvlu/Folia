@@ -39,7 +39,7 @@ function Home() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(formData);
-    nav('/template', { state: { formData } });
+    nav('/template', { state: formData });
   };
 
   return (

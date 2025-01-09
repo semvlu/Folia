@@ -3,16 +3,19 @@ import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
-import telephoneLogo from '../assets/telephone.svg'
-import emailLogo from '../assets/email.svg'
+import telephoneLogo from '../assets/telephone.svg';
+import emailLogo from '../assets/email.svg';
 import './Template.css';
 
 const Template = () => {
     const loc = useLocation();
     const userData = loc.state;
 
+    console.log('userData:', userData); // Add this line to check the contents of userData
+
     const contentRef = React.useRef(null); // ref for PDF
-    const generatePDF = async () => {
+    
+    const genPDF = async () => {
         if (contentRef.current) {
           const canvas = await html2canvas(contentRef.current);
           const imgData = canvas.toDataURL('image/png');
@@ -31,13 +34,13 @@ const Template = () => {
     return (
     <div className="cv-container">
         <div ref={contentRef}>
-            <Header {...userData} />
-            <PersonalDetails {...userData} />
+            <Header name={userData.name} email={userData.email} phone={userData.phone} />
+            <PersonalDetails birth={userData.birth} address={userData.address} />
             <Education />
             <Experience />
             <Skills />
         </div>
-      <button onClick={generatePDF} className="export-button">Export as PDF</button>
+      <button onClick={genPDF} className="btn-export">Export as PDF</button>
     </div>
   );
 };
