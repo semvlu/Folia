@@ -9,9 +9,9 @@ import './Template.css';
 
 const Template = () => {
     const loc = useLocation();
-    const userData = loc.state;
+    const formData = loc.state;
 
-    console.log('userData:', userData); // Add this line to check the contents of userData
+    console.log('Passed data:', formData); // Add this line to check the contents of userData
 
     const contentRef = React.useRef(null); // ref for PDF
     
@@ -34,21 +34,26 @@ const Template = () => {
     return (
     <div className="cv-container">
         <div ref={contentRef}>
-            <Header name={userData.name} email={userData.email} phone={userData.phone} />
-            <PersonalDetails birth={userData.birth} address={userData.address} />
+            <Header name={formData.name} title={formData.title}
+             email={formData.email} phone={formData.phone} />
+            <p>{formData.sociakMedia}</p>
+            <PersonalDetails birth={formData.birth} address={formData.address}
+             city={formData.city} country={formData.country}/>
             <Education />
             <Experience />
             <Skills />
+            <p>{formData.description}</p>
+            <p>{formData.date}</p>
         </div>
       <button onClick={genPDF} className="btn-export">Export as PDF</button>
     </div>
   );
 };
 
-const Header = ({ name="", email="", phone="" }) => (
+const Header = ({ name="", title="", email="", phone="" }) => (
   <header className="cv-header">
     <h1>{name}</h1>
-    <h3>Software Developer</h3>
+    <h3>{title}</h3>
     <p>
       <img src={emailLogo} className='logo' />: {email} | 
       <img src={telephoneLogo} className="logo" />: {phone}
@@ -57,11 +62,11 @@ const Header = ({ name="", email="", phone="" }) => (
   </header>
 );
 
-const PersonalDetails = ({ birth="", address="" }) => (
+const PersonalDetails = ({ birth="", address="", city="", country="" }) => (
   <section className="cv-section">
     <h2>Personal Details</h2>
-    <p>Address: {address}</p>
-    <p>Nationality: Your Nationality</p>
+    <p>Address: {address}, {city}</p>
+    <p>Nationality: {country}</p>
     <p>Date of Birth: {birth}</p>
   </section>
 );
