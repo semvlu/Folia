@@ -5,6 +5,9 @@ import html2canvas from 'html2canvas';
 
 import telephoneLogo from '../assets/telephone.svg';
 import emailLogo from '../assets/email.svg';
+import linkedinLogo from '../assets/linkedin.svg';
+import githubLogo from '../assets/github.svg';
+import xLogo from '../assets/twitter-x.svg';
 import './Template.css';
 
 const Template = () => {
@@ -35,8 +38,9 @@ const Template = () => {
     <div className="cv-container">
         <div ref={contentRef}>
             <Header name={formData.name} title={formData.title}
-             email={formData.email} phone={formData.phone} />
-            <p>{formData.sociakMedia}</p>
+             email={formData.email} phone={formData.phone}
+             socialMedia={formData.socialMedia} />
+            
             <PersonalDetails birth={formData.birth} address={formData.address}
              city={formData.city} country={formData.country}/>
             <Education />
@@ -50,7 +54,7 @@ const Template = () => {
   );
 };
 
-const Header = ({ name="", title="", email="", phone="" }) => (
+const Header = ({ name="", title="", email="", phone="", socialMedia=null }) => (
   <header className="cv-header">
     <h1>{name}</h1>
     <h3>{title}</h3>
@@ -58,7 +62,11 @@ const Header = ({ name="", title="", email="", phone="" }) => (
       <img src={emailLogo} className='logo' />: {email} | 
       <img src={telephoneLogo} className="logo" />: {phone}
     </p>
-    <p>LinkedIn: linkedin.com/in/johndoe | GitHub: github.com/johndoe</p>
+    <p>
+      <img src={linkedinLogo} className='logo' /> {socialMedia?.linkedin || ""} | 
+      <img src={githubLogo} className='logo' /> {socialMedia?.github || ""} | 
+      <img src={xLogo} className='logo' /> {socialMedia?.x || ""}
+    </p>
   </header>
 );
 

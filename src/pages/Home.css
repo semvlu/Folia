@@ -1,0 +1,5 @@
+.logo {
+    width: 1em; /* Adjust the size to match the text size */
+    height: 1em; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align the icon with the text */
+  }

@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import linkedinLogo from '../assets/linkedin.svg';
+import githubLogo from '../assets/github.svg';
+import xLogo from '../assets/twitter-x.svg';
+import './Home.css';
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -7,7 +11,7 @@ function Home() {
     title: '',
     email: '',
     phone: '',
-    socialMedia: '',
+    socialMedia: {linkedin: '', github: '', x: ''},
 
     address: '',
     city: '',
@@ -25,10 +29,14 @@ function Home() {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name.includes('socialMedia') ? 'socialMedia' : name]: name.includes('socialMedia')
+        ?{...formData.socialMedia, [name.split('.')[1]]: value}
+        : value
     });
   };
   
+
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFormData({
@@ -58,7 +66,7 @@ function Home() {
         </div>
         <div>
           <label>Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
         </div>
         <div>
           <label>Phone:</label>
@@ -66,8 +74,17 @@ function Home() {
         </div>
         <div>
           <label>Social Media:</label>
-          <input type="text" name="socialMedia" value={formData.socialMedia} onChange={handleChange} />
+          <img src={linkedinLogo} className='logo' />
+          <input type="text" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
+          <img src={githubLogo} className='logo' />
+          <input type="text" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
+          <img src={xLogo} className='logo' />
+          <input type="text" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
         </div>
+
+
+
+
         <div>
           <label>Address:</label>
           <input type="text" name="address" value={formData.address} onChange={handleChange} />
