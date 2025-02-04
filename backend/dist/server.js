@@ -21,6 +21,7 @@ db.connect((err) => {
     console.log('Connected to the database');
 });
 app.post('/submit', (req, res) => {
+    console.log(req.body);
     const { name, title, email, phone, socialMedia, address, city, country } = req.body;
     const query = `
     INSERT INTO user (Name, Title, Email, Phone, Linkedin, Github, X, Address, City, Country)
