@@ -16,15 +16,15 @@ function Home() {
     address: '',
     city: '',
     country: 'United States',
-    birth: '',
-
-    description: '',
-
-    //photo: null as File | null
+    
+    // photo: null as File | null
   });
 
+
+  // navigate to the template page
   const nav = useNavigate();
 
+  // handle form changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -35,23 +35,35 @@ function Home() {
     });
   };
   
-
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFormData({
         ...formData,
-        //photo: e.target.files[0]
+        // photo: e.target.files[0]
       });
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await fetch('http://localhost:3001/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.text();
+      console.log(result);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+    // console.log(formData);
     nav('/template', { state: formData });
   };
 
+// Page layout
   return (
     <div>
       <h1>Folia: Create your CV, portfolio and more!</h1>
@@ -75,15 +87,12 @@ function Home() {
         <div>
           <label>Social Media:</label>
           <img src={linkedinLogo} className='logo' />
-          <input type="text" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
+          <input type="url" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
           <img src={githubLogo} className='logo' />
-          <input type="text" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
+          <input type="url" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
           <img src={xLogo} className='logo' />
-          <input type="text" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
+          <input type="url" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
         </div>
-
-
-
 
         <div>
           <label>Address:</label>
@@ -336,14 +345,6 @@ function Home() {
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
           </select>
-        </div>
-        <div>
-          <label>Birth:</label>
-          <input type="date" name="birth" value={formData.birth} onChange={handleChange} />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea name="description" value={formData.description} onChange={handleChange}></textarea>
         </div>
         <div>
           <label>Photo:</label>
