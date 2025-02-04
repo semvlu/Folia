@@ -1,6 +1,5 @@
-# Node.js
+# Dependency directories
 node_modules/
-dist/
 
 # Build directories
 dist/
@@ -22,18 +21,3 @@ node_modules
 dist
 dist-ssr
 *.local
-
-# Dependency directories
-node_modules/
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
