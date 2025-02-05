@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mysql, { QueryError, RowDataPacket, OkPacket } from 'mysql2';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const app = express();
 const port = 3001;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -46,7 +48,9 @@ app.post('/submit', (req, res) => {
     Country = VALUES(Country)
   `;
 
-  const values = [name, title, email, phone, socialMedia.linkedin, socialMedia.github, socialMedia.x];
+  const values = [name, title, email, phone, 
+    socialMedia.linkedin, socialMedia.github, socialMedia.x,
+    address, city, country];
 
   db.query(query, values, (err: QueryError | null, result: OkPacket) => {
     if (err) {
