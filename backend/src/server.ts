@@ -10,7 +10,7 @@ const app = express();
 const port = 3001;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors()); // Cross-origin resource sharing: rcv msg from different ports
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,

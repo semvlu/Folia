@@ -28,10 +28,7 @@ dist-ssr
 # --- Backend ---
 # Dependency directories
 node_modules/
-
-# Build directories
 dist/
-build/
 
 # Environment variables
 .env

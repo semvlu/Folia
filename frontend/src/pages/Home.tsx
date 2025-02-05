@@ -20,7 +20,7 @@ function Home() {
     // photo: null as File | null
   });
 
-
+  
   // navigate to the template page
   const nav = useNavigate();
 
