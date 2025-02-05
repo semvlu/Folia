@@ -3,7 +3,7 @@ function AboutUs() {
     return (
       <div>
         <h1>About Us</h1>
-        <p>This is a react project practium.</p>
+        <p>Folia is a handy tool for everyone to create their own name card.</p>
       </div>
     );
   }
