@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Instruction from '../components/Instruction';
 import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
@@ -66,7 +67,8 @@ function Home() {
 // Page layout
   return (
     <div>
-      <h1>Folia: Create your CV, portfolio and more!</h1>
+      <h1>Folia</h1>
+      <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
@@ -105,7 +107,14 @@ function Home() {
         <div>
           <label>Country:</label>
           <select name="country" value={formData.country} onChange={handleChange}>
+            <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Italy">Italy</option>
+            <option value="Spain">Spain</option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Albania">Albania</option>
             <option value="Algeria">Algeria</option>
@@ -126,7 +135,6 @@ function Home() {
             <option value="Bangladesh">Bangladesh</option>
             <option value="Barbados">Barbados</option>
             <option value="Belarus">Belarus</option>
-            <option value="Belgium">Belgium</option>
             <option value="Belize">Belize</option>
             <option value="Benin">Benin</option>
             <option value="Bermuda">Bermuda</option>
@@ -179,7 +187,6 @@ function Home() {
             <option value="Faroe Islands">Faroe Islands</option>
             <option value="Fiji">Fiji</option>
             <option value="Finland">Finland</option>
-            <option value="France">France</option>
             <option value="France Metropolitan">France, Metropolitan</option>
             <option value="French Guiana">French Guiana</option>
             <option value="French Polynesia">French Polynesia</option>
@@ -187,7 +194,6 @@ function Home() {
             <option value="Gabon">Gabon</option>
             <option value="Gambia">Gambia</option>
             <option value="Georgia">Georgia</option>
-            <option value="Germany">Germany</option>
             <option value="Ghana">Ghana</option>
             <option value="Gibraltar">Gibraltar</option>
             <option value="Greece">Greece</option>
@@ -212,7 +218,6 @@ function Home() {
             <option value="Iraq">Iraq</option>
             <option value="Ireland">Ireland</option>
             <option value="Israel">Israel</option>
-            <option value="Italy">Italy</option>
             <option value="Jamaica">Jamaica</option>
             <option value="Japan">Japan</option>
             <option value="Jordan">Jordan</option>
@@ -257,7 +262,6 @@ function Home() {
             <option value="Namibia">Namibia</option>
             <option value="Nauru">Nauru</option>
             <option value="Nepal">Nepal</option>
-            <option value="Netherlands">Netherlands</option>
             <option value="Netherlands Antilles">Netherlands Antilles</option>
             <option value="New Caledonia">New Caledonia</option>
             <option value="New Zealand">New Zealand</option>
@@ -302,7 +306,6 @@ function Home() {
             <option value="Somalia">Somalia</option>
             <option value="South Africa">South Africa</option>
             <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
-            <option value="Span">Spain</option>
             <option value="Sri Lanka">Sri Lanka</option>
             <option value="St. Helena">St. Helena</option>
             <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
@@ -329,7 +332,6 @@ function Home() {
             <option value="Uganda">Uganda</option>
             <option value="Ukraine">Ukraine</option>
             <option value="United Arab Emirates">United Arab Emirates</option>
-            <option value="United Kingdom">United Kingdom</option>
             <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
             <option value="Uruguay">Uruguay</option>
             <option value="Uzbekistan">Uzbekistan</option>
@@ -352,6 +354,8 @@ function Home() {
         </div>
         <button type="submit">Submit</button>
       </form>
+
+      <Instruction />
     </div>
   );
 };

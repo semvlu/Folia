@@ -1,0 +1,5 @@
+ul {
+    list-style-position: inside; /* Ensure the bullet points are inside the list item */
+    padding-left: 0; /* Remove default padding */
+    margin-left: 0.5em; /* Add margin to align with text */
+}
