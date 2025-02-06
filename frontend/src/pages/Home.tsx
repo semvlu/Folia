@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Instruction from '../components/Instruction';
 import SubmitBtn_OtpModal from '../components/SubmitBtn_OtpModal';
 import linkedinLogo from '../assets/linkedin.svg';
@@ -67,67 +68,87 @@ function Home() {
     nav('/namecard', { state: formData });
   };
 
+  const style: string ="rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600 sm:text-sm";
 // Page layout
   return (
-    <div className='home'>
+
+    <div className="home">
       <h1>Folia</h1>
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input type="text" name="name" 
+            className={style}
+            value={formData.name} onChange={handleChange} />
         </div>
         <div>
           <label>Title:</label>
-          <input type="text" name="title" value={formData.title} onChange={handleChange} />
+          <input type="text" name="title" 
+            className={style}
+            value={formData.title} onChange={handleChange} />
         </div>
-        <div className="sm-5">
+        <div>
           <label>Email:</label>
-          <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
+          <input type="email" name="email" 
+            className={style}
+            value={formData.email} onChange={handleChange} />
         </div>
         <div>
           <label>Phone:</label>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} />
+          <input type="tel" name="phone" 
+            className={style}
+            value={formData.phone} onChange={handleChange} />
         </div>
         <div>
           <label>Social Media:</label>
 
-          <div className="input-group mb-2">
+          <div className="input-group mb-2 flex items-center justify-center">
             <img src={linkedinLogo} className='social-logo' />
-            <div className="input-group-prepend">
-                  <div className="input-group-text">@</div>
+            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+                  <span className="text-sm text-gray-500">@</span>
             </div>
-            <input type="text" className="form-control" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
+            <input type="text" name="socialMedia.linkedin"
+              className={style}
+              value={formData.socialMedia.linkedin} onChange={handleChange} />
           </div>
 
-          <div className="input-group mb-2">
+          <div className="input-group mb-2 flex items-center justify-center">
             <img src={githubLogo} className='social-logo' />
-            <div className="input-group-prepend">
-                  <div className="input-group-text">@</div>
+            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+                  <span className="text-sm text-gray-500">@</span>
             </div>
-            <input type="text" className="form-control" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
+            <input type="text" name="socialMedia.github"
+              className={style}
+              value={formData.socialMedia.github} onChange={handleChange} />
           </div>
 
-          <div className="input-group mb-2">
+          <div className="input-group mb-2 flex items-center justify-center">
             <img src={xLogo} className='social-logo' />
-            <div className="input-group-prepend">
-                  <div className="input-group-text">@</div>
+            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+                  <span className="text-sm text-gray-500">@</span>
             </div>
-            <input type="text" className="form-control" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
+            <input type="text" name="socialMedia.x" 
+              className={style}
+              value={formData.socialMedia.x} onChange={handleChange} />
           </div>
         </div>
 
         <div>
           <label>Address:</label>
-          <input type="text" name="address" value={formData.address} onChange={handleChange} />
+          <input type="text" name="address" 
+            className={style}
+            value={formData.address} onChange={handleChange} />
         </div>
         <div>
           <label>City:</label>
-          <input type="text" name="city" value={formData.city} onChange={handleChange} />
+          <input type="text" name="city" 
+            className={style}
+            value={formData.city} onChange={handleChange} />
         </div>
         <div>
           <label>Country:</label>
-          <select name="country" value={formData.country} onChange={handleChange}>
+          <select name="country" className={style} value={formData.country} onChange={handleChange}>
             <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
             <option value="France">France</option>
@@ -373,6 +394,30 @@ function Home() {
           <label>Photo:</label>
           <input type="file" className="btn btn-success" name="photo" onChange={handleFileChange} />
         </div>
+
+        <div className="col-span-full">
+          <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
+            Cover photo
+          </label>
+          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div className="text-center">
+              <PhotoIcon aria-hidden="true" className="mx-auto size-12 text-gray-300" />
+              <div className="mt-4 flex text-sm/6 text-gray-600">
+                <label
+                  htmlFor="file-upload"
+                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500"
+                >
+                  <span>Upload a file</span>
+                  <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                </label>
+                <p className="pl-1">or drag and drop</p>
+              </div>
+              <p className="text-xs/5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+          </div>
+        </div>
+
+
         <button type="submit" className='btn btn-primary'>Submit</button>
       </form>
       <p/>
