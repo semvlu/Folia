@@ -5,9 +5,8 @@
   background-color: #E51A4C ;
 }
 
-.home .logo {
-    width: 1em; /* Adjust the size to match the text size */
-    height: 1em; /* Maintain aspect ratio */
-    width: 24px; /* Adjust the size as needed */
-    background-color: transparent;
+.social-logo {
+    width: 4em; /* Adjust the size to match the text size */
+    height: 2em; /* Maintain aspect ratio */
   }
+

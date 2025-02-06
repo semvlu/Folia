@@ -91,12 +91,30 @@ function Home() {
         </div>
         <div>
           <label>Social Media:</label>
-          <img src={linkedinLogo} className='logo' />
-          <input type="text" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
-          <img src={githubLogo} className='logo' />
-          <input type="text" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
-          <img src={xLogo} className='logo' />
-          <input type="text" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
+
+          <div className="input-group mb-2">
+            <img src={linkedinLogo} className='social-logo' />
+            <div className="input-group-prepend">
+                  <div className="input-group-text">@</div>
+            </div>
+            <input type="text" className="form-control" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
+          </div>
+
+          <div className="input-group mb-2">
+            <img src={githubLogo} className='social-logo' />
+            <div className="input-group-prepend">
+                  <div className="input-group-text">@</div>
+            </div>
+            <input type="text" className="form-control" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
+          </div>
+
+          <div className="input-group mb-2">
+            <img src={xLogo} className='social-logo' />
+            <div className="input-group-prepend">
+                  <div className="input-group-text">@</div>
+            </div>
+            <input type="text" className="form-control" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
+          </div>
         </div>
 
         <div>
