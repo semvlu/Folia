@@ -68,12 +68,12 @@ function Home() {
     nav('/namecard', { state: formData });
   };
 
-  const style: string ="rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600 sm:text-sm";
+  const style: string ="rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600";
 // Page layout
   return (
 
     <div className="home">
-      <h1>Folia</h1>
+      <h1><b>Folia</b></h1>
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
         <div>
