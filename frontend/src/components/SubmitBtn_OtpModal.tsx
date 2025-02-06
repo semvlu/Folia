@@ -48,14 +48,18 @@ const SubmitBtn_OtpModal = () => {
                             </div>
 
                             <div className="modal-body">
-                                <form>
-                                    <input type="text" id="otp" 
-                                        name="otp" 
-                                        inputMode="numeric" 
-                                        required/>
-                                    <button type="submit" className="btn btn-primary">Submit</button>
-                                </form>
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <div className="col-auto">
+                                        <input type="text" id="otp" name="otp" 
+                                        className="form-control" 
+                                        inputMode="numeric" required />
+                                    </div>
+                                    <div className="col-auto">
+                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
