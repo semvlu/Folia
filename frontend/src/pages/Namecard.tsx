@@ -8,7 +8,7 @@ import emailLogo from '../assets/email.svg';
 import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
-import './Template.css';
+import './Namecard.css';
 
 interface SocialMedia {
   linkedin: string;
@@ -25,7 +25,7 @@ interface HeaderProps {
 }
 
 
-const Template = () => {
+const Namecard = () => {
     const loc = useLocation();
     const formData = loc.state;
 
@@ -49,7 +49,7 @@ const Template = () => {
 
 // Page layout
     return (
-    <div className="cv-container">
+    <div className="namecard-container">
         <div ref={contentRef}>
             <Header name={formData.name} title={formData.title}
              email={formData.email} phone={formData.phone}
@@ -65,7 +65,7 @@ const Template = () => {
 };
 
 const Header = ({ name = "", title = "", email = "", phone = "", socialMedia }: HeaderProps) => (
-  <header className="cv-header">
+  <header className="namecard-header">
     <h1>{name}</h1>
     <h3>{title}</h3>
     <p>
@@ -81,7 +81,7 @@ const Header = ({ name = "", title = "", email = "", phone = "", socialMedia }: 
 );
 
 const PersonalDetails = ({ birth="", address="", city="", country="" }) => (
-  <section className="cv-section">
+  <section className="namecard-section">
     <h2>Personal Details</h2>
     <p>Address: {address}, {city}</p>
     <p>Nationality: {country}</p>
@@ -90,4 +90,4 @@ const PersonalDetails = ({ birth="", address="", city="", country="" }) => (
 );
 
 
-export default Template;
+export default Namecard;

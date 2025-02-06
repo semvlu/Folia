@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import mysql, { QueryError, RowDataPacket, OkPacket } from 'mysql2';
+import mysql, { QueryError, RowDataPacket } from 'mysql2';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -34,7 +34,7 @@ app.post('/submit', (req, res) => {
   const { name, title, email, phone, socialMedia, address, city, country } = req.body;
 
   const query = `
-    INSERT INTO user (Name, Title, Email, Phone, Linkedin, Github, X, Address, City, Country)
+    INSERT INTO USERS (Name, Title, Email, Phone, Linkedin, Github, X, Address, City, Country)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON DUPLICATE KEY UPDATE
     Name = VALUES(Name),
@@ -52,7 +52,7 @@ app.post('/submit', (req, res) => {
     socialMedia.linkedin, socialMedia.github, socialMedia.x,
     address, city, country];
 
-  db.query(query, values, (err: QueryError | null, result: OkPacket) => {
+  db.query(query, values, (err: QueryError | null, result) => {
     if (err) {
       console.error('Error executing query:', err);
       res.status(500).send('Error inserting/updating data');
@@ -66,7 +66,7 @@ app.get('getData', (req, res) => {
     const userId = req.query.id;
 
     const query = `
-        SELECT * FROM users WHERE id = ?
+      SELECT * FROM USERS WHERE id = ?
     `;
 
     db.query(query, [userId], (err: QueryError | null, results: RowDataPacket[]) => {

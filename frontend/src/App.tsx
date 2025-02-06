@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
-import Template from './pages/Template'
+import Namecard from './pages/Namecard'
 import AboutUs from './pages/AboutUs'
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />  {/* default: Home */}
         <Route path="aboutus" element={<AboutUs />} />
-        <Route path="template" element={<Template />} />
+        <Route path="namecard" element={<Namecard />} />
       </Routes>
     </BrowserRouter>
   );

@@ -5,7 +5,7 @@ body {
     background-color: #E51A4C;
   }
   
-  .cv-container {
+  .namecard-container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
@@ -14,40 +14,40 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .cv-header {
+  .namecard-header {
     text-align: center;
     margin-bottom: 20px;
   }
   
-  .cv-header h1 {
+  .namecard-header h1 {
     margin: 0;
     font-size: 2.5rem;
     color: #333;
   }
   
-  .cv-header h3 {
+  .namecard-header h3 {
     margin: 5px 0;
     font-size: 1.2rem;
     color: #666;
   }
   
-  .cv-header p {
+  .namecard-header p {
     margin: 5px 0;
     font-size: 0.9rem;
     color: #555;
   }
   
-  .cv-header .logo {
+  .namecard-header .logo {
     width: 1em; /* Adjust the size to match the text size */
     height: 1em; /* Maintain aspect ratio */
     vertical-align: middle; /* Align the icon with the text */
   }
   
-  .cv-section {
+  .namecard-section {
     margin-bottom: 20px;
   }
   
-  .cv-section h2 {
+  .namecard-section h2 {
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #333;
@@ -55,22 +55,22 @@ body {
     padding-bottom: 5px;
   }
   
-  .cv-section ul {
+  .namecard-section ul {
     list-style-type: none;
     padding: 0;
   }
   
-  .cv-section li {
+  .namecard-section li {
     margin-bottom: 10px;
   }
   
-  .cv-section h3 {
+  .namecard-section h3 {
     margin: 0;
     font-size: 1.2rem;
     color: #555;
   }
   
-  .cv-section p {
+  .namecard-section p {
     margin: 5px 0;
     font-size: 0.9rem;
     color: #555;

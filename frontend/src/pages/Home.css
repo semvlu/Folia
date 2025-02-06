@@ -1,5 +1,13 @@
-.logo {
+.home {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E51A4C ;
+}
+
+.home .logo {
     width: 1em; /* Adjust the size to match the text size */
     height: 1em; /* Maintain aspect ratio */
-    vertical-align: middle; /* Align the icon with the text */
+    width: 24px; /* Adjust the size as needed */
+    background-color: transparent;
   }

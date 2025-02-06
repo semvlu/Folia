@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Instruction from '../components/Instruction';
+import SubmitBtn_OtpModal from '../components/SubmitBtn_OtpModal';
 import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
 import './Home.css';
+
+
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -22,7 +25,7 @@ function Home() {
   });
 
   
-  // navigate to the template page
+  // navigate to the namecard page
   const nav = useNavigate();
 
   // handle form changes
@@ -61,12 +64,12 @@ function Home() {
       console.error('Error submitting form:', error);
     }
     // console.log(formData);
-    nav('/template', { state: formData });
+    nav('/namecard', { state: formData });
   };
 
 // Page layout
   return (
-    <div>
+    <div className='home'>
       <h1>Folia</h1>
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
@@ -78,7 +81,7 @@ function Home() {
           <label>Title:</label>
           <input type="text" name="title" value={formData.title} onChange={handleChange} />
         </div>
-        <div>
+        <div className="sm-5">
           <label>Email:</label>
           <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} />
         </div>
@@ -89,11 +92,11 @@ function Home() {
         <div>
           <label>Social Media:</label>
           <img src={linkedinLogo} className='logo' />
-          <input type="url" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
+          <input type="text" name="socialMedia.linkedin" value={formData.socialMedia.linkedin} onChange={handleChange} />
           <img src={githubLogo} className='logo' />
-          <input type="url" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
+          <input type="text" name="socialMedia.github" value={formData.socialMedia.github} onChange={handleChange} />
           <img src={xLogo} className='logo' />
-          <input type="url" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
+          <input type="text" name="socialMedia.x" value={formData.socialMedia.x} onChange={handleChange} />
         </div>
 
         <div>
@@ -350,11 +353,14 @@ function Home() {
         </div>
         <div>
           <label>Photo:</label>
-          <input type="file" name="photo" onChange={handleFileChange} />
+          <input type="file" className="btn btn-success" name="photo" onChange={handleFileChange} />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className='btn btn-primary'>Submit</button>
       </form>
-
+      <p/>
+      
+      <SubmitBtn_OtpModal />
+      <p/>
       <Instruction />
     </div>
   );
