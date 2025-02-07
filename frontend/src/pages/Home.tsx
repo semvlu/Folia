@@ -9,7 +9,6 @@ import xLogo from '../assets/twitter-x.svg';
 import './Home.css';
 
 
-
 function Home() {
   const [formData, setFormData] = useState({
     name: '',
@@ -69,10 +68,11 @@ function Home() {
   };
 
   const style: string ="rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600";
-// Page layout
+
+  // Page layout
   return (
 
-    <div className="home">
+    <div>
       <h1><b>Folia</b></h1>
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>

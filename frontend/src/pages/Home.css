@@ -1,12 +1,67 @@
-.home {
+/* use !important to override (prioritise) class assignment */ 
+
+body {
+  background-color: #199191 !important;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #E51A4C ;
 }
 
+
+/* .logo has a collision w/ Bootstrap class */
 .social-logo {
     width: 4em; /* Adjust the size to match the text size */
     height: 2em; /* Maintain aspect ratio */
   }
+
+/* 
+Bootstrap class 
+
+Layout & Containers:
+container, container-fluid, row, col, grid
+d-flex, d-block, d-inline, d-none
+align-items-*, justify-content-*, text-center, text-start
+
+Typography & Colors:
+lead, small, fw-bold, fw-light
+bg-light, bg-dark, bg-primary, bg-success
+border, border-0, rounded, shadow, shadow-lg
+
+Forms & Buttons:
+btn, btn-primary, btn-secondary, btn-danger
+form-control, form-group, input-group, dropdown
+nav, navbar, navbar-brand, logo
+
+Components:
+card, card-body, card-title
+modal, modal-content, modal-header, modal-footer
+alert, badge, breadcrumb
+progress, carousel, pagination
+*/
+
+/*
+Tailwind class
+
+Layout & Spacing:
+container
+grid, flex, block, inline, hidden
+w-*, h-*, m-*, p-*
+
+Typography & Colors:
+text-*, font-*, leading-*
+bg-*, border-*, rounded-*
+shadow, opacity-*, invisible
+
+Flexbox & Grid:
+items-*, justify-*, place-*
+order-*, col-span-*, row-span-*
+
+Visibility & Positioning:
+absolute, relative, fixed, sticky
+top-*, bottom-*, left-*, right-*
+z-*
+
+Component Conflicts:
+btn, badge, card, alert, dropdown
+modal, nav, logo, progress, tooltip
 

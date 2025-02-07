@@ -25,3 +25,8 @@
   margin-left: 0;
   margin-right: 15px;
 }
+
+/* fix expand and content disappear problem */
+.accordion-collapse {
+  visibility: visible !important;
+}
