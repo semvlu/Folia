@@ -1,6 +1,12 @@
 /* use !important to override (prioritise) class assignment */ 
 
 /* .logo has a collision w/ Bootstrap class */
+
+input:focus-visible, select:focus-visible {
+  border: 2px solid #0284C7;
+  border-radius: 8px;
+}
+
 .social-logo {
     width: 4em; /* Adjust the size to match the text size */
     height: 2em; /* Maintain aspect ratio */
