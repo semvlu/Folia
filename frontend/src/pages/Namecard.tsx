@@ -61,13 +61,17 @@ const Namecard = () => {
 // Page layout
     return (
     <>
-      <nav className="navbar navbar-light bg-light">
-        <div className="mx-auto text-center navbar-text">
+      <nav className="navbar navbar-dark">
+        <a className="mx-auto text-center navbar-text"
+          href="/"
+        >
           Folia
-        </div>
+        </a>
 
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" 
+          data-toggle="collapse" data-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false">
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -82,6 +86,7 @@ const Namecard = () => {
             </li>
           </ul>
         </div>
+
       </nav>
 
 

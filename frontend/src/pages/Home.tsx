@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
@@ -66,6 +66,22 @@ function Home() {
     // console.log(formData);
     nav('/namecard', { state: formData });
   };
+
+  // Setup body style
+  useEffect(() => {
+    document.body.style.backgroundColor = '#199191';
+    document.body.style.fontFamily = 'Arial, sans-serif';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+
+    // Cleanup styles when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = '';
+      document.body.style.fontFamily = '';
+      document.body.style.margin = '';
+      document.body.style.padding = '';
+    };
+  }, []);
 
   const style: string ="mt-2 rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600";
 

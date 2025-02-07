@@ -2,12 +2,20 @@
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 1000;
+  background-color: #66023C;
 } 
 
 .navbar-text {
-  font-size: 24px;
+  font-size: 36px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.navbar-text:hover {
+  color: #E51A4C; /* Change to the desired color */
 }
  
  .namecard-container {

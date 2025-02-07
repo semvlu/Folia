@@ -1,13 +1,5 @@
 /* use !important to override (prioritise) class assignment */ 
 
-body {
-  background-color: #199191 ;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-
 /* .logo has a collision w/ Bootstrap class */
 .social-logo {
     width: 4em; /* Adjust the size to match the text size */
