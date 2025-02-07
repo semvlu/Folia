@@ -84,7 +84,7 @@ function Home() {
   }, []);
 
   const style: string ="mt-2 rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300  ";
-  const tmp: string = "focus:outline-2"  
+
   // Page layout
   return (
     <>
