@@ -26,6 +26,10 @@
   margin-right: 15px;
 }
 
+.accordion-body {
+  text-align: left;
+}
+
 /* fix expand and content disappear problem */
 .accordion-collapse {
   visibility: visible !important;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from 'react-tooltip'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Instruction from '../components/Instruction';
 import SubmitBtn_OtpModal from '../components/SubmitBtn_OtpModal';
@@ -7,7 +8,6 @@ import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
 import './Home.css';
-
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -67,12 +67,11 @@ function Home() {
     nav('/namecard', { state: formData });
   };
 
-  const style: string ="rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600";
+  const style: string ="mt-2 rounded-md bg-white px-3 py-1.5 text-base outline-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-sky-600";
 
   // Page layout
   return (
-
-    <div>
+    <>
       <h1><b>Folia</b></h1>
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
@@ -103,9 +102,14 @@ function Home() {
         <div>
           <label>Social Media:</label>
 
-          <div className="input-group mb-2 flex items-center justify-center">
-            <img src={linkedinLogo} className='social-logo' />
-            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+          <div className="mb-2 flex items-center justify-center">
+            <img src={linkedinLogo} className='mt-2 social-logo'
+              data-tooltip-id="linkedin-tt"
+              data-tooltip-place="left"
+              data-tooltip-content="LinkedIn"
+            />
+            <Tooltip id="linkedin-tt"/>
+            <div className="mt-2 px-2 py-2 inline-flex items-center min-w-fit rounded-s-md bg-gray-50">
                   <span className="text-sm text-gray-500">@</span>
             </div>
             <input type="text" name="socialMedia.linkedin"
@@ -113,9 +117,14 @@ function Home() {
               value={formData.socialMedia.linkedin} onChange={handleChange} />
           </div>
 
-          <div className="input-group mb-2 flex items-center justify-center">
-            <img src={githubLogo} className='social-logo' />
-            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+          <div className="mb-2 flex items-center justify-center">
+            <img src={githubLogo} className='mt-2 social-logo'
+              data-tooltip-id="github-tt"
+              data-tooltip-place="left"
+              data-tooltip-content="GitHub"
+            />
+            <Tooltip id="github-tt"/>
+            <div className="mt-2 px-2 py-2 inline-flex items-center min-w-fit rounded-s-md bg-gray-50">
                   <span className="text-sm text-gray-500">@</span>
             </div>
             <input type="text" name="socialMedia.github"
@@ -123,9 +132,14 @@ function Home() {
               value={formData.socialMedia.github} onChange={handleChange} />
           </div>
 
-          <div className="input-group mb-2 flex items-center justify-center">
-            <img src={xLogo} className='social-logo' />
-            <div className="px-2 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50">
+          <div className="mb-2 flex items-center justify-center">
+            <img src={xLogo} className='mt-2 social-logo' 
+              data-tooltip-id="x-tt"
+              data-tooltip-place="left"
+              data-tooltip-content="X (Twitter)"
+            />
+            <Tooltip id="x-tt"/>
+            <div className="mt-2 px-2 py-2 inline-flex items-center min-w-fit rounded-s-md bg-gray-50">
                   <span className="text-sm text-gray-500">@</span>
             </div>
             <input type="text" name="socialMedia.x" 
@@ -399,13 +413,16 @@ function Home() {
           <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
             Cover photo
           </label>
-          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-2 py-2">
             <div className="text-center">
               <PhotoIcon aria-hidden="true" className="mx-auto size-12 text-gray-300" />
-              <div className="mt-4 flex text-sm/6 text-gray-600">
+              <div className="mt-3 flex text-sm/5 text-gray-600">
                 <label
                   htmlFor="file-upload"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500"
+                  className="relative cursor-pointer rounded-sm bg-white font-semibold 
+                    text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 
+                    focus-within:ring-offset-2 
+                    focus-within:outline-hidden hover:text-indigo-500"
                 >
                   <span>Upload a file</span>
                   <input id="file-upload" name="file-upload" type="file" className="sr-only" />
@@ -417,7 +434,6 @@ function Home() {
           </div>
         </div>
 
-
         <button type="submit" className='btn btn-primary'>Submit</button>
       </form>
       <p/>
@@ -425,8 +441,9 @@ function Home() {
       <SubmitBtn_OtpModal />
       <p/>
       <Instruction />
-    </div>
+    </>
   );
 };
 
 export default Home;
+

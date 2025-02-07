@@ -6,10 +6,10 @@ const Instruction = () => {
             <div className="accordion" id="accordionPlusMinus">
               { /* data-bs-parent="#accordion": use it only when 1 card 
               shall be shown @ a time */}
-              <h1 className="mt-5"><b>Need to Know</b></h1>
-              <h2>
+              <h2 className="mt-5"><b>Need to Know</b></h2>
+              <h5>
                 For our old patrons and newbies, here are some instruction guides.
-              </h2>
+              </h5>
 
               <div className="accordion-item">
                 <h2 className="accordion-header">
@@ -23,11 +23,10 @@ const Instruction = () => {
                 </h2>
                 <div id="clpse1" className="accordion-collapse collapse">
                   <div className="accordion-body text-bidgray">
-                    Welcome back! <br/>
-                    Modify directly for the things you want to change. <br/>
-                    If you want to keep the things like before, just left it blank. <br/>
-                    If you want to delete the things, type "del" (without the quotation marks)
-                    in the field.
+                    <i>Welcome back! </i><br/>
+                    <li>Modify directly for the things you want to change.</li>
+                    <li>Keep things as used to? Just left it blank!</li>
+                    <li>Delete things? Key <kbd>d</kbd> in the field.</li>
                   </div>
                 </div>
               </div>
@@ -43,7 +42,7 @@ const Instruction = () => {
                 </h2>
                 <div id="clpse2" className="accordion-collapse collapse">
                   <div className="accordion-body text-bidgray">
-                    Greetings! Fill in what you like!
+                    <i>Greetings!</i> Fill in to create your first name card!
                   </div>
                 </div>
               </div>

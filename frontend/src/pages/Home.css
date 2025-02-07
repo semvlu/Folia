@@ -14,6 +14,11 @@ body {
     height: 2em; /* Maintain aspect ratio */
   }
 
+.accordion-collapse {
+  visibility: visible !important;
+}
+
+
 /* 
 Bootstrap class 
 
