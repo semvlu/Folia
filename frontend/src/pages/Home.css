@@ -1,7 +1,7 @@
 /* use !important to override (prioritise) class assignment */ 
 
 body {
-  background-color: #199191 !important;
+  background-color: #199191 ;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -42,9 +42,9 @@ card, card-body, card-title
 modal, modal-content, modal-header, modal-footer
 alert, badge, breadcrumb
 progress, carousel, pagination
-*/
 
-/*
+
+
 Tailwind class
 
 Layout & Spacing:
@@ -69,4 +69,4 @@ z-*
 Component Conflicts:
 btn, badge, card, alert, dropdown
 modal, nav, logo, progress, tooltip
-
+*/

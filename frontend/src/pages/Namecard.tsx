@@ -29,11 +29,11 @@ const Namecard = () => {
     const loc = useLocation();
     const formData = loc.state;
 
-    const contentRef = React.useRef(null); // ref for PDF
+    const contentRef = React.useRef(null); // ref for PDF/PNG
     
-    const genPDF = async () => {
+    async function genPDF() {
         if (contentRef.current) {
-          const canvas = await html2canvas(contentRef.current);
+          const canvas = await html2canvas(contentRef.current, {scale: 2, useCORS: true });
           const imgData = canvas.toDataURL('image/png');
           const pdf = new jsPDF();
           const pageWidth = pdf.internal.pageSize.getWidth();
@@ -43,24 +43,59 @@ const Namecard = () => {
           const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
 
           pdf.addImage(imgData, 'PNG', 0, 0, imgWidth * ratio, imgHeight * ratio);
-          pdf.save('document.pdf')
+          pdf.save('Folia_Namecard.pdf')
         }
-      };
+    };
+
+    async function genPNG() {
+      if (contentRef.current) {
+        const canvas = await html2canvas(contentRef.current, {scale: 2, backgroundColor: null});
+        const imgData = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'Folia_Namecard.png';
+        link.click();
+      }
+    };
 
 // Page layout
     return (
-    <div className="namecard-container">
-        <div ref={contentRef}>
-            <Header name={formData.name} title={formData.title}
-             email={formData.email} phone={formData.phone}
-             socialMedia={formData.socialMedia} />
-            
-            <PersonalDetails birth={formData.birth} address={formData.address}
-             city={formData.city} country={formData.country}/>
+    <>
+      <nav className="navbar navbar-light bg-light">
+        <div className="mx-auto text-center navbar-text">
+          Folia
         </div>
 
-      <button onClick={genPDF} className="btn-export">Export as PDF</button>
-    </div>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Features</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <div className="namecard-container" ref={contentRef}>
+        <Header name={formData.name} title={formData.title}
+          email={formData.email} phone={formData.phone}
+          socialMedia={formData.socialMedia} />
+
+        <Details address={formData.address}
+          city={formData.city} country={formData.country}/>
+      </div>
+      <button onClick={genPDF} className="btn btn-danger">Export as PDF</button>
+      <button onClick={genPNG} className="btn btn-primary">Export as PNG</button>
+      </>
   );
 };
 
@@ -68,24 +103,23 @@ const Header = ({ name = "", title = "", email = "", phone = "", socialMedia }: 
   <header className="namecard-header">
     <h1>{name}</h1>
     <h3>{title}</h3>
-    <p>
-      <img src={emailLogo} className='logo' />: {email} | 
-      <img src={telephoneLogo} className="logo" />: {phone}
-    </p>
-    <p>
-      <img src={linkedinLogo} className='logo' /> {socialMedia?.linkedin || ""} | 
-      <img src={githubLogo} className='logo' /> {socialMedia?.github || ""} | 
-      <img src={xLogo} className='logo' /> {socialMedia?.x || ""}
-    </p>
+    <div className="contact-info">
+      <img src={emailLogo} className='namecard-logo' /> {email}
+      <img src={telephoneLogo} className="namecard-logo" /> {phone}
+    </div>
+
+    <div className="social-media">
+      <img src={linkedinLogo} className='namecard-logo' /> {socialMedia?.linkedin || ""} 
+      <img src={githubLogo} className='namecard-logo' /> {socialMedia?.github || ""}
+      <img src={xLogo} className='namecard-logo' /> {socialMedia?.x || ""}
+    </div>
   </header>
 );
 
-const PersonalDetails = ({ birth="", address="", city="", country="" }) => (
+const Details = ({ address="", city="", country="" }) => (
   <section className="namecard-section">
-    <h2>Personal Details</h2>
-    <p>Address: {address}, {city}</p>
-    <p>Nationality: {country}</p>
-    <p>Date of Birth: {birth}</p>
+    <p>{address}, {city}</p>
+    <p>{country}</p>
   </section>
 );
 
