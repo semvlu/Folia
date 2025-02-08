@@ -110,45 +110,45 @@ function Home() {
             placeholder='+999-123-456-7890'
             value={formData.phone} onChange={handleChange} />
         </div>
-        <div>
-          <label>Social Media</label>
+        
+        <label className="social">Social Media</label>
 
-          <div className="social">
-            <img src={linkedinLogo}
-              data-tooltip-id="linkedin-tt"
-              data-tooltip-place="left"
-              data-tooltip-content="LinkedIn"
-            />
-            <Tooltip id="linkedin-tt"/>
-            <span>@</span>
-            <input type="text" name="socialMedia.linkedin"
-              value={formData.socialMedia.linkedin} onChange={handleChange} />
-          </div>
-
-          <div className="social">
-            <img src={githubLogo}
-              data-tooltip-id="github-tt"
-              data-tooltip-place="left"
-              data-tooltip-content="GitHub"
-            />
-            <Tooltip id="github-tt"/>
-            <span>@</span>
-            <input type="text" name="socialMedia.github"
-              value={formData.socialMedia.github} onChange={handleChange} />
-          </div>
-
-          <div className="social">
-            <img src={xLogo}
-              data-tooltip-id="x-tt"
-              data-tooltip-place="left"
-              data-tooltip-content="X (Twitter)"
-            />
-            <Tooltip id="x-tt"/>
-            <span>@</span>
-            <input type="text" name="socialMedia.x" 
-              value={formData.socialMedia.x} onChange={handleChange} />
-          </div>
+        <div className="social">
+          <img src={linkedinLogo}
+            data-tooltip-id="linkedin-tt"
+            data-tooltip-place="left"
+            data-tooltip-content="LinkedIn"
+          />
+          <Tooltip id="linkedin-tt"/>
+          <span>@</span>
+          <input type="text" name="socialMedia.linkedin"
+            value={formData.socialMedia.linkedin} onChange={handleChange} />
         </div>
+          
+		<div className="social">
+          <img src={githubLogo}
+            data-tooltip-id="github-tt"
+            data-tooltip-place="left"
+            data-tooltip-content="GitHub"
+          />
+          <Tooltip id="github-tt"/>
+          <span>@</span>
+          <input type="text" name="socialMedia.github"
+            value={formData.socialMedia.github} onChange={handleChange} />
+        </div>
+
+        <div className="social">
+          <img src={xLogo}
+            data-tooltip-id="x-tt"
+            data-tooltip-place="left"
+            data-tooltip-content="X (Twitter)"
+          />
+          <Tooltip id="x-tt"/>
+          <span>@</span>
+          <input type="text" name="socialMedia.x" 
+            value={formData.socialMedia.x} onChange={handleChange} />
+        </div>
+        
 
         <div>
           <label>Address</label>
@@ -423,12 +423,12 @@ function Home() {
         <label htmlFor="cover-photo">
           Cover photo
         </label>
-        <PhotoIcon aria-hidden="true" className="mx-auto size-12 " />
+        <PhotoIcon aria-hidden="true" className="uploadIcon" />
         <label
           htmlFor="file-upload"
-          className="relative cursor-pointer rounded-sm bg-white font-semibold"
+          className="upload"
         >
-          <span>Upload a file</span>
+          <span className="upload">Upload a file</span>
     	  <input id="file-upload" type="file" className="sr-only" />
       	</label>
         <p>or drag and drop</p>

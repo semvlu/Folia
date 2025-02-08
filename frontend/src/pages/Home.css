@@ -10,12 +10,12 @@
 
 .title {
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size:1.5em;
+  font-size: clamp(1.5em, 10vw, 100px)
 }
 
 input {
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-inline: 3px; /* px */
   padding-block: 2px; /* py */
   
@@ -33,18 +33,26 @@ input:focus-visible, select:focus-visible {
 
 label {
   font-size: 1.2em;
-  margin-right: 10px;
+  margin-right: 10px
 }
 
 .social {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin: 0 5px; /* spacing b/w social media fields */
 }
 
 .social img {
-    width: 4em; /* Adjust the size to match the text size */
-    height: 2em; /* Maintain aspect ratio */
+  width: 4em; /* Adjust the size to match the text size */
+  height: 2em; /* Maintain aspect ratio */
+}
+
+@media (min-width: 768px) {
+  .social {
+    display: inline-flex; /* for larger screens */
+  }
 }
 
 span { /* Prepend in casu */
@@ -76,6 +84,21 @@ select {
 
 .btn {
   margin-block: 1em;
+}
+
+.upload {
+  color: white;
+  background-color: teal;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+
+}
+
+.uploadIcon {
+  margin-inline: auto;
+  width: calc(var(--spacing) * 12); 
+  height: calc(var(--spacing) * 12);
 }
 
 .accordion-collapse {
@@ -113,15 +136,6 @@ Tailwind class
 
 Layout & Spacing:
 container
-grid, flex, block, inline, hidden
-w-*, h-*, m-*, p-*
-
-Typography & Colors:
-text-*, font-*, leading-*
-bg-*, border-*, rounded-*
-shadow, opacity-*, invisible
-
-Flexbox & Grid:
 items-*, justify-*, place-*
 order-*, col-span-*, row-span-*
 
