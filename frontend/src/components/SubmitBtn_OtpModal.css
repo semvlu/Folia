@@ -1,3 +1,7 @@
 .btn-close:hover {
     background-color: red;
 }
+
+.modal-body {
+    background-color: #F4F4F5;
+}

@@ -1,8 +1,11 @@
 import React, { useState, MouseEvent } from "react";
+import { InputOtp } from '@heroui/input-otp';
+import { useForm, Controller } from 'react-hook-form';
 import './SubmitBtn_OtpModal.css';
 
 const SubmitBtn_OtpModal = () => {
     const [showOtpModal, setShowOtpModal] = useState(false);
+    const { control, handleSubmit, formState: { errors } } = useForm();
 
     const handleClick = (e: MouseEvent) => {
         setShowOtpModal(true);
@@ -11,6 +14,11 @@ const SubmitBtn_OtpModal = () => {
     const handleClose = () => {
         setShowOtpModal(false);
     }
+
+    const onSubmit = (data: any) => {
+        console.log(data);
+    }
+
     const style: string ="mt-1 rounded-md bg-white px-3 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm";
 
     return (
@@ -49,16 +57,35 @@ const SubmitBtn_OtpModal = () => {
                             </div>
 
                             <div className="modal-body">
-                                <div className="d-flex justify-content-center align-items-center">
-                                    <div className="col-auto">
-                                        <input type="text" id="otp" name="otp" 
-                                        className={style} placeholder="Enter OTP"
-                                        inputMode="numeric" required />
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <div className="d-flex flex-column flex-md-row 
+                                        justify-content-center align-items-center">
+                                        <div className="col-auto mb-2 mb-md-0">
+                                            <Controller
+                                                name="otp"
+                                                control={control}
+                                                rules={{ 
+                                                    required: "OTP is required", 
+                                                    minLength: { value: 6, message: "Please enter a valid OTP" } }}
+
+                                                render={({ field }) => (
+                                                    <InputOtp              
+                                                        className="custom-otp"
+                                                        {...field}
+                                                        isRequired
+                                                        validationBehavior="aria" 
+                                                        errorMessage={errors.otp ? errors.otp.message as string : ""}
+                                                        isInvalid={!!errors.otp}
+                                                        length={6}
+                                                    />
+                                                )}
+                                            />
+                                        </div>
+                                        <div className="col-auto ms-md-3">
+                                            <button type="submit" className="btn btn-primary">Submit</button>
+                                        </div>
                                     </div>
-                                    <div className="col-auto">
-                                        <button type="submit" className="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                             
                             
