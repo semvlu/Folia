@@ -71,6 +71,7 @@ const SubmitBtn_OtpModal = () => {
                                                 render={({ field }) => (
                                                     <InputOtp              
                                                         className="custom-otp"
+                                                        inputMode="numeric"
                                                         {...field}
                                                         isRequired
                                                         validationBehavior="aria" 
