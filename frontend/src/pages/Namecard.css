@@ -8,9 +8,9 @@
 } 
 
 .navbar-text {
-  font-size: 36px;
+  font-size: 42px;
   color: white;
-  font-family: sans-serif;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
 }
 
@@ -18,7 +18,7 @@
   color: #E51A4C; /* Change to the desired color */
 }
  
- .namecard-container {
+.namecard-container {
     min-width: 85.60mm;
     aspect-ratio: 85.60 / 53.98;
     margin: 20px auto;
@@ -26,55 +26,55 @@
     background: #c5c7c9;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-  }
+}
 
-  .namecard-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.namecard-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.namecard-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
   
-  .namecard-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
+.namecard-header h3 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #666;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #E51A4C; /* Spanish Crimson */
+}
   
-  .namecard-header h3 {
-    margin: 5px 0;
-    font-size: 1.2rem;
-    color: #666;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #E51A4C; /* Spanish Crimson */
-  }
-  
-  .contact-info, .social-media {
+.contact-info, .social-media {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-  .namecard-header {
-    margin: 0;
-    font-size: 1.2em;
-    margin-bottom: 1em;
-  }
+.namecard-header {
+  margin: 0;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.namecard-logo {
+  width: 1em; /* Adjust the size to match the text size */
+  height: auto; /* Maintain aspect ratio */
+  filter: invert(23%) sepia(55%) saturate(3924%)
+    hue-rotate(330deg) brightness(88%) contrast(105%);
+}
   
-  .namecard-logo {
-    width: 1em; /* Adjust the size to match the text size */
-    height: auto; /* Maintain aspect ratio */
-    filter: invert(23%) sepia(55%) saturate(3924%)
-      hue-rotate(330deg) brightness(88%) contrast(105%);
-  }
-  
-  .namecard-section {
-    font-size: 1.5rem;
-    border-top: 2px solid #66023C; /* Tyrian purple */
-  }
-  
-  .namecard-section p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #66023C; /* Tyrian purple */
-  }
+.namecard-section {
+  font-size: 1.5rem;
+  border-top: 2px solid #66023C; /* Tyrian purple */
+}
+
+.namecard-section p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #66023C; /* Tyrian purple */
+}
   

@@ -2,15 +2,81 @@
 
 /* .logo has a collision w/ Bootstrap class */
 
-input:focus-visible, select:focus-visible {
-  border: 2px solid #0284C7;
-  border-radius: 8px;
+
+.btn-success { /* override Bootstrap btn-success */
+  background-color: #21aa6a;
+  border-color: #21aa6a;
 }
 
-.social-logo {
+.title-font {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size:1.5em;
+}
+
+input {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-inline: 3px; /* px */
+  padding-block: 2px; /* py */
+  
+  
+  border: 2px solid #d1d1d1;
+  border-radius: 0.375rem;
+  background-color: white;
+}
+
+input:focus-visible, select:focus-visible {
+  border: 2px solid #0284C7;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+label {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social img {
     width: 4em; /* Adjust the size to match the text size */
     height: 2em; /* Maintain aspect ratio */
-  }
+}
+
+span { /* Prepend in casu */
+  padding-inline: 2px; /* px */
+  padding-block: 2px; /* py */
+
+  border-radius: 0.375rem;
+  color: #777777;
+  background-color: #EEEEEE;
+
+  display: inline-flex;
+  align-items: center;
+
+  border-start-start-radius: 0.375rem;
+  border-end-start-radius: 0.375rem;
+}
+
+select {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-inline: 3px; /* px */
+  padding-block: 2px; /* py */
+  
+  
+  border: 2px solid #d1d1d1;
+  border-radius: 0.375rem;
+  background-color: white;
+}
+
+.btn {
+  margin-block: 1em;
+}
 
 .accordion-collapse {
   visibility: visible !important;

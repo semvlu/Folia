@@ -65,7 +65,7 @@ const Namecard = () => {
         <a className="mx-auto text-center navbar-text"
           href="/"
         >
-          Folia
+          &#8498;olia
         </a>
 
         <button className="navbar-toggler" type="button" 
