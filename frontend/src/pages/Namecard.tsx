@@ -8,9 +8,7 @@ import emailLogo from '../assets/email.svg';
 import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
-import bgDeco from '../assets/grotesque.jpg';
 import './Namecard.css';
-import { backgroundImage } from 'html2canvas/dist/types/css/property-descriptors/background-image';
 
 interface SocialMedia {
   linkedin: string;
@@ -101,8 +99,6 @@ const Namecard = () => {
       }
     };
 
-    if (!cardData.email) return <b>Loading...</b>; 
-
 // Page layout
     return (
     <>
@@ -110,7 +106,7 @@ const Namecard = () => {
         <a className="mx-auto text-center navbar-text"
           href="/"
         >
-          &#8498;olia
+          F/&#8498;olia
         </a>
 
         <button className="navbar-toggler" type="button" 
