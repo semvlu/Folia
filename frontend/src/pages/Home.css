@@ -101,11 +101,6 @@ select {
   height: calc(var(--spacing) * 12);
 }
 
-.accordion-collapse {
-  visibility: visible !important;
-}
-
-
 /* 
 Bootstrap class 
 
