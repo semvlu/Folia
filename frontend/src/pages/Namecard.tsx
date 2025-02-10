@@ -8,7 +8,9 @@ import emailLogo from '../assets/email.svg';
 import linkedinLogo from '../assets/linkedin.svg';
 import githubLogo from '../assets/github.svg';
 import xLogo from '../assets/twitter-x.svg';
+import bgDeco from '../assets/grotesque.jpg';
 import './Namecard.css';
+import { backgroundImage } from 'html2canvas/dist/types/css/property-descriptors/background-image';
 
 interface SocialMedia {
   linkedin: string;
@@ -134,6 +136,7 @@ const Namecard = () => {
 
 
       <div className="namecard-container" ref={contentRef}>
+
         <Header name={cardData.name} title={cardData.title}
           email={cardData.email} phone={cardData.phone}
           socialMedia={{

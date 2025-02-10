@@ -1,3 +1,6 @@
+:root {
+  --bgDeco: url(../assets/grotesque.jpg);
+}
 
 .navbar {
   position: fixed;
@@ -26,11 +29,20 @@
     background: #c5c7c9;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+
+    background-image: var(--bgDeco);
+    background-size: contain;
+    background-blend-mode: screen;
 }
 
 .namecard-header {
+  margin: 0;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .namecard-header h1 {
@@ -54,11 +66,7 @@
     gap: 10px;
 }
 
-.namecard-header {
-  margin: 0;
-  font-size: 1.2em;
-  margin-bottom: 1em;
-}
+
 
 .namecard-logo {
   width: 1em; /* Adjust the size to match the text size */
@@ -74,7 +82,8 @@
 
 .namecard-section p {
   margin: 5px 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #66023C; /* Tyrian purple */
+  font-family: 'Times New Roman', Times, serif;
 }
   
