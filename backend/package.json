@@ -6,7 +6,8 @@
   "scripts": {
     "startALT": "ts-node src/server.ts",
     "compile": "tsc",
-    "start": "npm run compile && nodemon ./dist/index.js"
+    "start": "npm run compile && nodemon ./dist/index.js",
+    "startnocompile": "nodemon ./dist/index.js" 
   },
   "keywords": [],
   "author": "",
