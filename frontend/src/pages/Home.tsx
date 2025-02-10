@@ -86,7 +86,9 @@ function Home() {
   // Page layout
   return (
     <>
+	  <h1><b className='title'>F/&#8498;</b></h1>
       <h1><b className="title">Folia `\|/´ ailo&#8498;</b></h1> { /* Inverse F: Claudian letter */ }
+	  
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
         <div>
