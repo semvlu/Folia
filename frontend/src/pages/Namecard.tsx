@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -131,7 +132,67 @@ const Namecard = () => {
       </nav>
 
 
-      <div className="namecard-container" ref={contentRef}>
+      <Carousel fade>
+        <Carousel.Item>
+          <div id="grotesque" className="namecard-container" ref={contentRef}>
+            <Header name={cardData.name} title={cardData.title}
+              email={cardData.email} phone={cardData.phone}
+              socialMedia={{
+                linkedin: cardData.socialMedia.linkedin,
+                github: cardData.socialMedia.github,
+                x: cardData.socialMedia.x
+              }} />
+
+            <Details address={cardData.address}
+              city={cardData.city} country={cardData.country} />
+          </div>
+
+          <Carousel.Caption>
+            <h4>Grotesque</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <div id="renaissance" className="namecard-container" ref={contentRef}>
+            <Header name={cardData.name} title={cardData.title}
+              email={cardData.email} phone={cardData.phone}
+              socialMedia={{
+                linkedin: cardData.socialMedia.linkedin,
+                github: cardData.socialMedia.github,
+                x: cardData.socialMedia.x
+              }} />
+
+            <Details address={cardData.address}
+              city={cardData.city} country={cardData.country}/>
+          </div>
+          <Carousel.Caption>
+            <h4>Renaissance</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <div id="muqarnas" className="namecard-container" ref={contentRef}>
+            <Header name={cardData.name} title={cardData.title}
+              email={cardData.email} phone={cardData.phone}
+              socialMedia={{
+                linkedin: cardData.socialMedia.linkedin,
+                github: cardData.socialMedia.github,
+                x: cardData.socialMedia.x
+              }} />
+
+            <Details address={cardData.address}
+              city={cardData.city} country={cardData.country}/>
+          </div>
+
+          <Carousel.Caption>
+            <h4>Muqarnas</h4>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+
+      <br/>
+
+      <div className="namecard-container" id="fixed" ref={contentRef}>
 
         <Header name={cardData.name} title={cardData.title}
           email={cardData.email} phone={cardData.phone}
@@ -144,11 +205,13 @@ const Namecard = () => {
         <Details address={cardData.address}
           city={cardData.city} country={cardData.country}/>
       </div>
+
       <button onClick={genPDF} className="btn btn-danger">Export as PDF</button>
       <button onClick={genPNG} className="btn btn-primary">Export as PNG</button>
-      </>
+    </>
   );
 };
+
 
 const Header = ({ name = "", title = "", email = "", phone = "", socialMedia }: HeaderProps) => (
   <header className="namecard-header">

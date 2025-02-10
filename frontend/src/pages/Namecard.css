@@ -1,5 +1,11 @@
 :root {
-  --bgDeco: url(../assets/grotesque.jpg);
+  --bgGrotesque: url(../assets/grotesque.jpg);
+  --bgMuqarnas: url(../assets/muqarnas.jpg);
+  --bgRenaissanceOrnament: url(../assets/RenaissanceOrnament.jpg)
+}
+
+body {
+  padding-top: 100px;
 }
 
 .navbar {
@@ -7,6 +13,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
   background-color: #66023C;
 } 
 
@@ -18,21 +25,51 @@
 }
 
 .navbar-text:hover {
-  color: #E51A4C; /* Change to the desired color */
+  color: #E51A4C; /* Spanish crimson */
 }
- 
-.namecard-container {
-    min-width: 85.60mm;
-    aspect-ratio: 85.60 / 53.98;
-    margin: 20px auto;
-    padding: 20px;
-    background: #c5c7c9;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
 
-    background-image: var(--bgDeco);
-    background-size: contain;
-    background-blend-mode: screen;
+.carousel {
+  width: 24.6em; /* approximation by adding */
+}
+
+.carousel-caption {
+  color: #888;
+  opacity: 40%;
+}
+
+.namecard-container {
+  min-width: 85.60mm;
+  aspect-ratio: 85.60 / 53.98;
+  margin: 20px auto;
+  padding: 20px;
+  background: #c5c7c9;
+  border-radius: 20px;
+}
+/*.namecard-container {
+  width: 85.60mm;
+  height: 53.98mm;
+  background: #c5c7c9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}*/
+
+#grotesque {
+  background-image: var(--bgGrotesque);
+  background-size: contain;
+  background-blend-mode: screen;
+}
+#renaissance {
+  background-image: var(--bgRenaissanceOrnament);
+  background-size: contain;
+  background-blend-mode: screen;
+}
+#muqarnas {
+  background-image: var(--bgMuqarnas);
+  background-size: contain;
+  background-blend-mode: screen;
 }
 
 .namecard-header {
@@ -47,7 +84,7 @@
 
 .namecard-header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
   
 .namecard-header h3 {
