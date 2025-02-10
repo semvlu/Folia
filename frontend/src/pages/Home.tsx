@@ -64,7 +64,7 @@ function Home() {
       console.error('Error submitting form:', error);
     }
     // console.log(formData);
-    nav('/namecard', { state: formData });
+    nav('/namecard', { state: { email: formData.email } });
   };
 
   // Setup body style

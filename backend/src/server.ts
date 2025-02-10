@@ -37,15 +37,15 @@ app.post('/submit', (req, res) => {
     INSERT INTO USERS (Name, Title, Email, Phone, Linkedin, Github, X, Address, City, Country)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON DUPLICATE KEY UPDATE
-    Name = VALUES(Name),
-    Title = VALUES(Title),
-    Phone = VALUES(Phone),
-    Linkedin = VALUES(Linkedin),
-    Github = VALUES(Github),
-    X = VALUES(X),
-    Address = VALUES(Address),
-    City = VALUES(City),
-    Country = VALUES(Country)
+      Name = IF(VALUES(Name) = 'd', '', IF(VALUES(Name) = '', Name, VALUES(Name))),
+      Title = IF(VALUES(Title) = 'd', '', IF(VALUES(Title) = '', Title, VALUES(Title))),
+      Phone = IF(VALUES(Phone) = 'd', '', IF(VALUES(Phone) = '', Phone, VALUES(Phone))),
+      Linkedin = IF(VALUES(Linkedin) = 'd', '', IF(VALUES(Linkedin) = '', Linkedin, VALUES(Linkedin))),
+      Github = IF(VALUES(Github) = 'd', '', IF(VALUES(Github) = '', Github, VALUES(Github))),
+      X = IF(VALUES(X) = 'd', '', IF(VALUES(X) = '', X, VALUES(X))),
+      Address = IF(VALUES(Address) = 'd', '', IF(VALUES(Address) = '', Address, VALUES(Address))),
+      City = IF(VALUES(City) = 'd', '', IF(VALUES(City) = '', City, VALUES(City))),
+      Country = IF(VALUES(Country) = 'd', '', IF(VALUES(Country) = '', Country, VALUES(Country)))
   `;
 
   const values = [name, title, email, phone, 
@@ -62,28 +62,27 @@ app.post('/submit', (req, res) => {
   });
 });
 
-app.get('getData', (req, res) => {
-    const userId = req.query.id;
 
-    const query = `
-      SELECT * FROM USERS WHERE id = ?
-    `;
+app.get('/user/:email', (req, res) => {
+  const { email } = req.params;
 
-    db.query(query, [userId], (err: QueryError | null, results: RowDataPacket[]) => {
-        if (err) {
-            console.error('Error executing query:', err);
-            res.status(500).send('Error fetching data');
-            return;
-        }
-
-        if (results.length === 0) {
-            res.status(404).send('User not found');
-            return;
-        }
-        res.json(results[0]);
-    });
+  const query = `
+    SELECT Name, Title, Email, Phone, Linkedin, Github, X, Address, City, Country 
+    FROM USERS 
+    WHERE Email = ?
+  `;
+  
+  db.query(query, [email], (err, results: RowDataPacket[]) => {
+      if (err) {
+          console.error("Error fetching user:", err);
+          return res.status(500).json({ error: "Database error" });
+      }
+      if (results.length === 0) {
+          return res.status(404).json({ error: "User not found" });
+      }
+      res.json(results[0]);
+  });
 });
-
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

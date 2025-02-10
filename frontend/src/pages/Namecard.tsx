@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -27,7 +27,48 @@ interface HeaderProps {
 
 const Namecard = () => {
     const loc = useLocation();
-    const formData = loc.state;
+    const email = loc.state?.email;
+    const [cardData, setCardData] = useState( {
+      name: '',
+      title: '',
+      email: '',
+      phone: '',
+      socialMedia: {linkedin: '', github: '', x: ''},
+  
+      address: '',
+      city: '',
+      country: '',
+      
+      // photo: null as File | null
+    });
+
+    useEffect(() => {
+      if (email) {
+        fetch(`http://localhost:3001/user/${email}`)
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            console.log("Fetched data:", data); 
+
+            setCardData({
+              name: data.Name || 'John Doe',
+              title: data.Title || '',
+              email: data.Email || '@example.com',
+              phone: data.Phone || '',
+              socialMedia: {
+                linkedin: data.Linkedin || '',
+                github: data.Github || '',
+                x: data.X || '',
+              },
+              address: data.Address || 'Nieuwezijds Voorburgwal 147',
+              city: data.City || 'Amsterdam',
+              country: data.Country || 'Netherlands',
+            });
+          })
+          .catch(error => console.error("Error fetching data:", error));
+      }
+    }, [email]);
 
     const contentRef = React.useRef(null); // ref for PDF/PNG
     
@@ -57,6 +98,8 @@ const Namecard = () => {
         link.click();
       }
     };
+
+    if (!cardData.email) return <b>Loading...</b>; 
 
 // Page layout
     return (
@@ -91,12 +134,16 @@ const Namecard = () => {
 
 
       <div className="namecard-container" ref={contentRef}>
-        <Header name={formData.name} title={formData.title}
-          email={formData.email} phone={formData.phone}
-          socialMedia={formData.socialMedia} />
+        <Header name={cardData.name} title={cardData.title}
+          email={cardData.email} phone={cardData.phone}
+          socialMedia={{
+            linkedin: cardData.socialMedia.linkedin,
+            github: cardData.socialMedia.github,
+            x: cardData.socialMedia.x
+          }} />
 
-        <Details address={formData.address}
-          city={formData.city} country={formData.country}/>
+        <Details address={cardData.address}
+          city={cardData.city} country={cardData.country}/>
       </div>
       <button onClick={genPDF} className="btn btn-danger">Export as PDF</button>
       <button onClick={genPNG} className="btn btn-primary">Export as PNG</button>
