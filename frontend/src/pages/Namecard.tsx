@@ -206,8 +206,9 @@ const Namecard = () => {
           city={cardData.city} country={cardData.country}/>
       </div>
 
-      <button onClick={genPDF} className="btn btn-danger">Export as PDF</button>
-      <button onClick={genPNG} className="btn btn-primary">Export as PNG</button>
+      <button onClick={genPDF} className="btn btn-danger">Export as <b>PDF</b></button>
+      <br/>
+      <button onClick={genPNG} className="btn btn-primary">Export as <b>PNG</b></button>
     </>
   );
 };

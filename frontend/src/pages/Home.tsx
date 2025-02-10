@@ -86,8 +86,7 @@ function Home() {
   // Page layout
   return (
     <>
-	  <h1><b className='title'>F/&#8498;</b></h1>
-      <h1><b className="title">Folia `\|/´ ailo&#8498;</b></h1> { /* Inverse F: Claudian letter */ }
+      <h1><b className="title">F/&#8498;olia</b></h1> { /* Inverse F: Claudian letter */ }
 	  
       <h2>Create your name card for free!</h2>
       <form onSubmit={handleSubmit}>
@@ -98,7 +97,7 @@ function Home() {
         </div>
         <div>
           <label>Title</label>
-          <input type="text" name="title" 
+          <input type="text" name="title"
             value={formData.title} onChange={handleChange} />
         </div>
         <div>
