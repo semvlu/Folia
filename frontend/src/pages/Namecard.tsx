@@ -71,7 +71,7 @@ const Namecard = () => {
     }, [email]);
 
     const contentRef = React.useRef(null); // ref for PDF/PNG
-    
+    const x = 0;
     async function genPDF() {
         if (contentRef.current) {
           const canvas = await html2canvas(contentRef.current, {scale: 2, useCORS: true });
