@@ -7,5 +7,7 @@ name cards.
 
 ## And the name card preview
 > Exclusive styles available, such as Grotesque and Renaissance ornaments, and Muqarnas.
+
+
 ![alt text](https://github.com/semvlu/Folia/blob/main/foliaNamecardPreview.png?raw=true)
 
