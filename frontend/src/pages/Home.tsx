@@ -437,10 +437,10 @@ function Home() {
 
         <button type="submit" className='btn btn-primary'>Submit</button>
       </form>
-      <p/>
+      
       
       <SubmitBtn_OtpModal />
-      <p/>
+      
       <Instruction />
     </>
   );

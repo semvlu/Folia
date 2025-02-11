@@ -1,3 +1,7 @@
+h2 {
+  margin-top: 2px;
+}
+
 #accordionPlusMinus .accordion-button {
   flex-direction: row-reverse;
   justify-content: start;

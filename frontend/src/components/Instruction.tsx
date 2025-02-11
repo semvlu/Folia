@@ -6,7 +6,7 @@ const Instruction = () => {
             <div className="accordion" id="accordionPlusMinus">
               { /* data-bs-parent="#accordion": use it only when 1 card 
               shall be shown @ a time */}
-              <h2 className="mt-5"><b>Need to Know</b></h2>
+              <h2><b>Need to Know</b></h2>
               <h5>
                 For our old patrons and newbies, here are some instruction guides.
               </h5>
@@ -24,6 +24,7 @@ const Instruction = () => {
                 <div id="clpse1" className="accordion-collapse collapse">
                   <div className="accordion-body text-bidgray">
                     <i>Welcome back! </i><br/>
+                    <li>Get your name card by filling in the e-mail and the country / region.</li>
                     <li>Modify directly for the things you want to change.</li>
                     <li>Keep things as used to? Just left it blank!</li>
                     <li>Delete things? Key <kbd>d</kbd> in the field.</li>
