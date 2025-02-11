@@ -1,4 +1,4 @@
-# Folia: Your Name Card Creator
+# F/&#8498;olia: Your Name Card Creator
 Folia is a simple and user-friendly name card creator that allows you to design and print your own
 name cards.
 
