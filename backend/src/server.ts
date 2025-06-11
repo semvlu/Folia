@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import mysql, { QueryError, RowDataPacket } from 'mysql2';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import Redis from 'ioredis';
+import crypto from 'crypto';
 
 dotenv.config();
 
@@ -12,13 +14,19 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(cors()); // Cross-origin resource sharing: rcv msg from different ports
 
+const redis = new Redis({
+  host: process.env.REDIS_HOST,
+  port: Number(process.env.REDIS_PORT),
+  password: process.env.REDIS_PASSWORD
+});
+
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: Number(process.env.DB_PORT) // Default port for MariaDB
-  });
+});
 
 db.connect((err: mysql.QueryError | null) => {
   if (err) {
@@ -27,6 +35,50 @@ db.connect((err: mysql.QueryError | null) => {
   }
   console.log('Connected to the database');
 });
+
+
+
+function asyncHandler(fn: express.RequestHandler) {
+  return (req: any, res: any, next: any) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
+}
+
+app.post('/send-otp', asyncHandler(async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    res.status(400).send("Email is required");
+  }
+
+  const otp = crypto.randomInt(100000, 999999).toString(); // 6-digit
+  await redis.set(`otp:${email}`, otp, 'EX', 300); // exp. 5 mins
+
+  console.log(`OTP for ${email}: ${otp}`); // In real apps, send via email/SMS
+  res.send("OTP sent");
+}));
+
+app.post('/verify-otp', asyncHandler(async (req, res) => {
+  const { email, otp } = req.body;
+
+  const storedOtp = await redis.get(`otp:${email}`);
+
+  if (!storedOtp) {
+    res.status(400).send("OTP expired or not found");
+  }
+
+  if (storedOtp !== otp) {
+    res.status(401).send("Invalid OTP");
+  }
+
+  await redis.del(`otp:${email}`); // Invalidate after use
+
+  res.send("OTP verified successfully");
+}));
+
+
+
+
 
 app.post('/submit', (req, res) => {
 
