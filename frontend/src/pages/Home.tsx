@@ -122,7 +122,7 @@ function Home() {
         <b className="title">F/&#8498;olia</b>
       </h1>{" "}
       {/* Inverse F: Claudian letter */}
-      <h2>Create your name card for free!</h2>
+      <h2>Create your business card for free!</h2>
       <form onSubmit={handleFormSubmit}>
         <div>
           <label>Name</label>
