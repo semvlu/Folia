@@ -7,7 +7,7 @@ business cards.
 
 ![alt text](https://github.com/semvlu/Folia/blob/main/foliaPreview.png?raw=true)
 
-## And the business card preview
+## And the business card preview 
 
 > Exclusive styles available, such as Grotesque and Renaissance ornaments, and Muqarnas.
 
